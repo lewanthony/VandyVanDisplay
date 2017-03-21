@@ -4,7 +4,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <title>Vandy Van</title>
-        
+
         <link rel="stylesheet" type="text/css" href="styles.css">
     </head>
     <body>
@@ -19,7 +19,6 @@
     <script type="text/javascript">
         var element = document.getElementById('information');
         var url = element.src;
-        element.src = 'about:blank';
         setInterval(function() {
             var ts = new Date().getTime();
             element.src = url + '?ts=' + ts;
