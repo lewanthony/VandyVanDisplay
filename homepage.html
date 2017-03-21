@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <title>Vandy Van</title>
+        
+        <link rel="stylesheet" type="text/css" href="styles.css">
+    </head>
+    <body>
+        <div>
+            <iframe id="information" src="https://vandyvans.com/map" frameborder="0" scrolling="no" align="top"></iframe> 
+        </div>
+        <div>
+            <iframe id="advertisement" src="https://vanderbilt.edu" frameborder="0" scrolling="no" align="bottom"></iframe>
+        </div>
+    </body>
+
+    <script type="text/javascript">
+        var element = document.getElementById('information');
+        var url = element.src;
+        element.src = 'about:blank';
+        setInterval(function() {
+            var ts = new Date().getTime();
+            element.src = url + '?ts=' + ts;
+        }, 10000 );
+    </script>
+</html>
