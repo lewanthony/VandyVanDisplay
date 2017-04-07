@@ -8,15 +8,35 @@
         <link rel="stylesheet" type="text/css" href="styles.css">
     </head>
     <body>
-        <div>
-            <iframe id="information" src="http://mbus.doublemap.com/map/kiosk" frameborder="0" scrolling="no" align="top"></iframe> 
+        <div class="information">
+            <iframe id="doublemap" src="http://mbus.doublemap.com/map/kiosk" frameborder="0" scrolling="no" align="top"></iframe> 
         </div>
-        <div>
-            <iframe id="advertisement" src="http://blog.triphp.com/wp-content/uploads/2010/10/4-vsg.jpg" frameborder="0" scrolling="no" align="bottom"></iframe>
+        <div class="advertisements">
+
+            <img class="advertisement fade" src="ad1.png">
+            <img class="advertisement fade" src="ad2.jpg">
+            <img class="advertisement fade" src="ad3.jpg">
+
         </div>
+
     </body>
 
     <script type="text/javascript">
+        var slideIndex = 0;
+        carousel();
+
+        function carousel() {
+            var i;
+            var x = document.getElementsByClassName("advertisement");
+            for (i = 0; i < x.length; i++) {
+              x[i].style.display = "none"; 
+            }
+            slideIndex++;
+            if (slideIndex > x.length) {slideIndex = 1} 
+            x[slideIndex-1].style.display = "block"; 
+            setTimeout(carousel, 5000); // Change image every 5 seconds
+        }
+
         var element = document.getElementById('information');
         var url = element.src;
         setInterval(function() {

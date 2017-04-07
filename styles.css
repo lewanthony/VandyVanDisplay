@@ -1,10 +1,44 @@
-iframe {
+body {
+	padding: 0;
+	margin: 0;
+}
+
+.information {
 	width: 100%;
 	height: 50%;
 	frameborder: 0;
 }
 
-body {
-	padding: 0;
-	margin: 0;
+.advertisements {
+	width: 100%;
+	height: 50%;
+	frameborder: 0;
+}
+
+#doublemap {
+	width: 100%;
+	height: 100%;
+}
+
+.advertisement {
+    display: none;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
 }
