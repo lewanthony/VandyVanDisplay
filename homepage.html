@@ -36,12 +36,6 @@
             x[slideIndex-1].style.display = "block"; 
             setTimeout(carousel, 5000); // Change image every 5 seconds
         }
-
-        var element = document.getElementById('information');
-        var url = element.src;
-        setInterval(function() {
-            var ts = new Date().getTime();
-            element.src = url + '?ts=' + ts;
-        }, 10000 );
+        
     </script>
 </html>
