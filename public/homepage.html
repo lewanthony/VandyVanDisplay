@@ -6,28 +6,38 @@
         <title>Vandy Van</title>
 
         <link rel="stylesheet" type="text/css" href="styles.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     </head>
     <body>
         <div class="information">
             <iframe id="doublemap" src="http://mbus.doublemap.com/map/kiosk" frameborder="0" scrolling="no" align="top"></iframe> 
         </div>
-        <div class="advertisements">
-
-            <img class="advertisement fade" src="ad1.png">
-            <img class="advertisement fade" src="ad2.jpg">
-            <img class="advertisement fade" src="ad3.jpg">
-
-        </div>
+        <div class="advertisements" id="ads"></div>
 
     </body>
 
     <script type="text/javascript">
         var slideIndex = 0;
-        carousel();
+
+        var folder = 'http://localhost:5000/images';
+        $.ajax({
+            url : folder,
+            success: function (data) {
+                $(data).find("a").attr("href", function (i, val) {
+                    if( val.match(/\.(jpe?g|png|gif)$/) ) { 
+                        $(".advertisements").append( '<img class="advertisement fade" src="' + val + '">');
+                    }
+                });
+            },
+            complete: function(data) {
+                carousel();
+            } 
+        });
 
         function carousel() {
             var i;
             var x = document.getElementsByClassName("advertisement");
+            console.log(x);
             for (i = 0; i < x.length; i++) {
               x[i].style.display = "none"; 
             }
