@@ -7,5 +7,4 @@ app.set('PORT', (5000));
 
 app.use('/images', serveIndex('public/images'));
 app.use(express.static(__dirname + '/public'));
-
 app.listen(app.get('PORT'));

@@ -25,11 +25,16 @@
             success: function (data) {
                 $(data).find("a").attr("href", function (i, val) {
                     if( val.match(/\.(jpe?g|png|gif)$/) ) { 
-                        $(".advertisements").append( '<img class="advertisement fade" src="' + val + '">');
+                        $("#ads").append( '<img class="advertisement fade" src="' + val + '">');
                     }
                 });
             },
             complete: function(data) {
+                $("#doublemap").on('load', function(){
+                    var iframe = document.getElementById('doublemap');
+                    var innerDoc = iframe.contentDocument;
+                    var o = innerDoc.getElementsByClassName("menu-button")[0].click(); 
+                });
                 carousel();
             } 
         });
@@ -37,7 +42,6 @@
         function carousel() {
             var i;
             var x = document.getElementsByClassName("advertisement");
-            console.log(x);
             for (i = 0; i < x.length; i++) {
               x[i].style.display = "none"; 
             }
