@@ -32,7 +32,7 @@ CHUNK_SIZE=50
 #CURL_BIN="/usr/bin/curl"
 
 #Default values
-TMP_DIR="/tmp"
+TMP_DIR="/home/pi/tmp"
 DEBUG=0
 QUIET=0
 SHOW_PROGRESSBAR=0

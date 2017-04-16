@@ -68,5 +68,9 @@ display_rotate=1
 
 crontab instructions
 
-@reboot /home/pi/Desktop/VandyVanDisplay/Dropbox-Uploader/dropbox_uploader.sh -f /home/pi/.dropbox_uploader download Advertisements /home/pi/Desktop/VandyVanDisplay/public/images/ &
-@reboot /usr/bin/node /home/pi/Desktop/VandyVanDisplay/index.js &
+CREATE FOLDER /home/pi/tmp
+
+@reboot sleep 2 && rm /home/pi/Desktop/VandyVanDisplay/public/images/* &
+@reboot sleep 5 && /home/pi/Desktop/VandyVanDisplay/Dropbox-Uploader/dropbox_uploader.sh -k -f /home/pi/.dropbox_uploader download images /home/pi/Desktop/VandyVanDisplay/public/ &
+@reboot sleep 8 && /usr/bin/node /home/pi/Desktop/VandyVanDisplay/index.js &
+0 2 * * * /sbin/shutdown -r
